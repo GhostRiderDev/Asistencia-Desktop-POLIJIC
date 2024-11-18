@@ -43,6 +43,7 @@
             this.CmbBusqueda = new System.Windows.Forms.ComboBox();
             this.BtnImprimir = new System.Windows.Forms.Button();
             this.DgvIngresos = new System.Windows.Forms.DataGridView();
+            this.DgvHorario = new System.Windows.Forms.DataGridView();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -60,9 +61,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.LblRegistro = new System.Windows.Forms.Label();
             this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIngresos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvHorario)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -113,7 +118,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(8, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 16);
+            this.label1.Size = new System.Drawing.Size(85, 16);
             this.label1.TabIndex = 20;
             this.label1.Text = "Fecha inicial:";
             // 
@@ -123,7 +128,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(8, 43);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 16);
+            this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 21;
             this.label4.Text = "Fecha final:";
             // 
@@ -178,7 +183,7 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(3, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 16);
+            this.label5.Size = new System.Drawing.Size(79, 16);
             this.label5.TabIndex = 30;
             this.label5.Text = "Documento:";
             // 
@@ -232,6 +237,20 @@
             this.DgvIngresos.Size = new System.Drawing.Size(804, 254);
             this.DgvIngresos.TabIndex = 47;
             this.DgvIngresos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DgvIngresos_MouseDoubleClick);
+            // 
+            // DgvHorario
+            // 
+            this.DgvHorario.AllowUserToAddRows = false;
+            this.DgvHorario.AllowUserToDeleteRows = false;
+            this.DgvHorario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DgvHorario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvHorario.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.DgvHorario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvHorario.Location = new System.Drawing.Point(25, 241);
+            this.DgvHorario.Name = "DgvHorario";
+            this.DgvHorario.ReadOnly = true;
+            this.DgvHorario.Size = new System.Drawing.Size(804, 254);
+            this.DgvHorario.TabIndex = 47;
             // 
             // textBox2
             // 
@@ -333,7 +352,7 @@
             this.TxtObservaciones.Location = new System.Drawing.Point(421, 554);
             this.TxtObservaciones.Multiline = true;
             this.TxtObservaciones.Name = "TxtObservaciones";
-            this.TxtObservaciones.Size = new System.Drawing.Size(408, 72);
+            this.TxtObservaciones.Size = new System.Drawing.Size(51, 10);
             this.TxtObservaciones.TabIndex = 62;
             // 
             // BtnActualizar
@@ -417,12 +436,50 @@
             this.BtnLimpiar.UseVisualStyleBackColor = false;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(90)))), ((int)(((byte)(45)))));
+            this.button1.Location = new System.Drawing.Point(604, 576);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 31);
+            this.button1.TabIndex = 70;
+            this.button1.Text = "Cargar Horario";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.BtnCargarHorarioExcel);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.dateTimePicker1.Location = new System.Drawing.Point(487, 579);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dateTimePicker1.Size = new System.Drawing.Size(111, 22);
+            this.dateTimePicker1.TabIndex = 71;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(428, 583);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 16);
+            this.label6.TabIndex = 72;
+            this.label6.Text = "Desde: ";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // FrmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(853, 679);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.LblRegistro);
             this.Controls.Add(this.label9);
@@ -457,6 +514,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvIngresos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvHorario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -479,6 +537,7 @@
         private System.Windows.Forms.ComboBox CmbBusqueda;
         private System.Windows.Forms.Button BtnImprimir;
         private System.Windows.Forms.DataGridView DgvIngresos;
+        private System.Windows.Forms.DataGridView DgvHorario;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox1;
@@ -496,5 +555,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblRegistro;
         private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label6;
     }
 }

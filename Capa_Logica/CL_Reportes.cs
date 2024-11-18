@@ -12,6 +12,7 @@ namespace Capa_Logica
         public DataTable dtIngresosDocumento = new DataTable();
         public DataTable dtIngresosFechas = new DataTable();
         public DataTable dtIngresos = new DataTable();
+        public DataTable dtHorario = new DataTable();
         public DataTable dtSalidas = new DataTable();
         public DateTime fecha_ini = new DateTime();
         public DateTime fecha_fin = new DateTime();
