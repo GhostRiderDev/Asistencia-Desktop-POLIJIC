@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using Capa_Conexion;
 
 // Comentario para subir al repositorio 
@@ -83,6 +84,20 @@ namespace Capa_Logica
             da.Fill(dtIngresos);
             obj.connection.Close();
         }
+
+        public DataTable SP_FrmReportes_CargarIngresoByDate(string date)
+        {
+            CL_Conexion obj = new CL_Conexion();
+            SqlCommand con = new SqlCommand("SP_FrmReportes_IngresosPorDia", obj.connection);
+            con.CommandType = CommandType.StoredProcedure;
+            con.Parameters.AddWithValue("@fecha", date);
+            obj.connection.Open();
+            SqlDataAdapter da = new SqlDataAdapter(con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            obj.connection.Close();
+            return dt;
+        }
         public void SP_FrmReportes_CargarSalidasFechas()
         {
             CL_Conexion obj = new CL_Conexion();
@@ -95,6 +110,9 @@ namespace Capa_Logica
             da.Fill(dtSalidas);
             obj.connection.Close();
         }
+
+
+
         public void SP_FrmReportes_Actualizar()
         {
             CL_Conexion objconect = new CL_Conexion();
