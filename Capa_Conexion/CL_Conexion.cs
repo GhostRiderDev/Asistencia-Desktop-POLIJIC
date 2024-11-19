@@ -9,7 +9,11 @@ namespace Capa_Conexion
 {
     public class CL_Conexion
     {
-        public SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=DBAsistencia; persist security info=False;user id=sa;pwd=12345678");
+        public SqlConnection connection = new SqlConnection("Data Source=DESKTOP-Q4Q4MR9\\SQLEXPRESS;Initial Catalog=DBAsistencia; Integrated Security=true");
+
+        
+
+        // "Data Source=localhost;Initial Catalog=DBAsistencia; persist security info=False;user id=sa;pwd=12345678"
     }
 }
 

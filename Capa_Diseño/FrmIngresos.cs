@@ -69,7 +69,7 @@ namespace Capa_Diseño
         {
             //Dirección de carpeta en pc a instalar @"C:\Users\POLITÉCNICO\Pictures\Docentes"
             //Dirección de carpeta donde se desarrolla @"C:\Users\Poli\Pictures\Docentes"
-            string rutaCarpetaNN = @"C:\Users\Poli\Pictures\Docentes";
+            string rutaCarpetaNN = @"C:\Users\POLITÉCNICO\Pictures\Docentes";
             string nombreArchivoNN = "img.png"; // Reemplaza con el nombre de tu imagen
 
             // Combina la ruta de la carpeta con el nombre del archivo
